@@ -7,12 +7,15 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    // "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
+    "allowJs": false,
 
     /* Linting */
     "strict": true,
