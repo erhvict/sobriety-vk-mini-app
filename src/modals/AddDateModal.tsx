@@ -19,7 +19,7 @@ const AddDateModal: FC<NavIdProps & { onClose: () => void }> = (props) => {
           <FormItem>
             <Calendar
               value={value}
-              onChange={setValue}
+              onChange={(newValue) => setValue(newValue as Date)}
               enableTime={true}
               disablePast={false}
               disableFuture={true}
