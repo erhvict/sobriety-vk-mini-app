@@ -35,7 +35,7 @@ bridge
     console.log(error);
   });
 
-export const Home: FC<HomeProps> = ({ id, fetchedUser }) => {
+export const Home: FC<HomeProps> = ({ id }) => {
   // const routeNavigator = useRouteNavigator();
 
   return (

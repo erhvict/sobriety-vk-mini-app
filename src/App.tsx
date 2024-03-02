@@ -30,11 +30,13 @@ export const App = () => {
     fetchData();
   }, []);
 
+  console.log(fetchedUser);
+
   return (
     <SplitLayout modal={<Modals />} popout={popout}>
       <SplitCol>
         <View activePanel={activePanel}>
-          <Home id="home" fetchedUser={fetchedUser} />
+          <Home id="home" />
         </View>
       </SplitCol>
     </SplitLayout>
