@@ -1,6 +1,5 @@
 import { useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 import { FC } from 'react';
-import MotivationBlock from '../MotivationBlock/MotivationBlock';
 
 import './Timer.css';
 
@@ -16,7 +15,6 @@ const Timer: FC = () => {
           <p className="timer-text">36 минут</p>
         </div>
       </div>
-      <MotivationBlock />
     </>
   );
 };
