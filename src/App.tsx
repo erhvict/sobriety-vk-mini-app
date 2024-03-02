@@ -31,7 +31,7 @@ export const App = () => {
   }, []);
 
   return (
-    <SplitLayout modal={<Modals />}>
+    <SplitLayout modal={<Modals />} popout={popout}>
       <SplitCol>
         <View activePanel={activePanel}>
           <Home id="home" fetchedUser={fetchedUser} />
