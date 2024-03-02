@@ -15,7 +15,7 @@ import { FC, useCallback, useState } from 'react';
 
 const AddDateModal: FC<NavIdProps & { onClose: () => void }> = (props) => {
   const routeNavigator = useRouteNavigator();
-  const [value, setValue] = useState(() => new Date());
+  const [date, setDate] = useState(() => new Date());
   const [alchoType, setAlchoType] = useState('');
   const [volume, setVolume] = useState('');
 
@@ -31,8 +31,9 @@ const AddDateModal: FC<NavIdProps & { onClose: () => void }> = (props) => {
         <FormLayoutGroup mode="vertical">
           <FormItem required top="Дата">
             <DateInput
-              value={value}
-              onChange={(newValue) => setValue(newValue as Date)}
+              required
+              value={date}
+              onChange={(newValue) => setDate(newValue as Date)}
               enableTime={false}
               disablePast={false}
               disableFuture={true}
@@ -85,13 +86,20 @@ const AddDateModal: FC<NavIdProps & { onClose: () => void }> = (props) => {
           </FormItem>
 
           {!alchoType ? null : (
-            <FormItem required top="Количество выпитого, л">
-              <Input placeholder="0.5" value={volume} onChange={(e) => setVolume(e.target.value)} />
+            <FormItem top="Количество выпитого, л">
+              <Input
+                type="number"
+                placeholder="0.5"
+                value={volume}
+                onChange={(e) => setVolume(e.target.value)}
+              />
             </FormItem>
           )}
 
           <FormItem>
-            <Button onClick={onConfirmClick}>Добавить</Button>
+            <Button disabled={date === undefined} onClick={onConfirmClick}>
+              Добавить
+            </Button>
           </FormItem>
         </FormLayoutGroup>
       </Div>
