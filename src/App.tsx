@@ -2,6 +2,7 @@ import bridge, { BannerAdLayoutType, BannerAdLocation, UserInfo } from '@vkontak
 import { useActiveVkuiLocation } from '@vkontakte/vk-mini-apps-router';
 import { ScreenSpinner, SplitCol, SplitLayout, View } from '@vkontakte/vkui';
 import { ReactNode, useEffect, useState } from 'react';
+import { handleUserRequest } from './api/makeRequest';
 import { Modals } from './modals';
 
 import { Home } from './pages';
@@ -30,7 +31,11 @@ export const App = () => {
     fetchData();
   }, []);
 
-  console.log(fetchedUser);
+  useEffect(() => {
+    handleUserRequest(fetchedUser)
+      .then(() => console.log('Обработка запроса завершена'))
+      .catch((error) => console.error('Ошибка при обработке запроса:', error));
+  }, [fetchedUser]);
 
   return (
     <SplitLayout modal={<Modals />} popout={popout}>
