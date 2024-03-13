@@ -3,9 +3,11 @@ import { useAdaptivity, useAppearance, useInsets } from '@vkontakte/vk-bridge-re
 import { RouterProvider } from '@vkontakte/vk-mini-apps-router';
 import { AdaptivityProvider, AppRoot, ConfigProvider } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
+import { Provider } from 'react-redux';
 
 import { App } from './App';
 import { router } from './routes';
+import { store } from './store';
 import { transformVKBridgeAdaptivity } from './utils';
 
 export const AppConfig = () => {
@@ -22,9 +24,11 @@ export const AppConfig = () => {
       hasCustomPanelHeaderAfter={true}>
       <AdaptivityProvider {...adaptivity}>
         <AppRoot layout="plain" mode="full" safeAreaInsets={vkBridgeInsets}>
-          <RouterProvider router={router}>
-            <App />
-          </RouterProvider>
+          <Provider store={store}>
+            <RouterProvider router={router}>
+              <App />
+            </RouterProvider>
+          </Provider>
         </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>
