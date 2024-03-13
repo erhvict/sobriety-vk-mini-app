@@ -23,7 +23,7 @@ const Timer: FC = () => {
 
   useEffect(() => {
     // Установим целевую дату
-    const targetDate: Date = new Date('2024-03-01T12:00:00');
+    const targetDate: Date = new Date('2024-01-05T12:00:00');
     setTargetTimestamp(targetDate.getTime());
   }, []);
 
